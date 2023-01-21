@@ -27,6 +27,10 @@ class UWaterBlueprintFunctionLibraryBPLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_UCLASS_BODY()
 
-	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Execute Sample function", Keywords = "WaterBlueprintFunctionLibrary sample test testing"), Category = "WaterBlueprintFunctionLibraryTesting")
-	static float WaterBlueprintFunctionLibrarySampleFunction(float Param);
+	UFUNCTION(BlueprintCallable, meta = (WorldContext = "WorldContextObject", Keywords = "WaterBlueprintFunctionLibrary water waves"), Category = "WaterBlueprintFunctionLibrary")
+		static void ChangeWaterWaveAsset(UObject* WorldContextObject, AWaterBody* CurrentWaterBody, const FString& WaveAssetFolder,  const FString& WaveAssetName);
+
+	UFUNCTION(BlueprintCallable, meta = (WorldContext = "WorldContextObject", Keywords = "WaterBlueprintFunctionLibrary water waves"), Category = "WaterBlueprintFunctionLibrary")
+		static void RecalcWaveData(UObject* WorldContextObject,UGerstnerWaterWaves* GerstnerWaterWaves);
+
 };
